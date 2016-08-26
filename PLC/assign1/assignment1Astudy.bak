@@ -1,0 +1,4 @@
+(define (2nd L)
+  (car (cdr L)))
+
+(2nd '(x y z))

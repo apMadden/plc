@@ -1,0 +1,31 @@
+/*
+ * Derivative
+ *
+ */
+d(X, X, 1).
+d(C, X, 0) :- atomic(C), C \= X.
+d(U + V, X, DU + DV) :- d(U, X, DU), d(V, X, DV).
+d(U * V, X, U * DV + V * DU) :- d(U, X, DU), d(V, X, DV).
+
+/*
+ * Type Tests
+ *
+ */
+initGamma(G), judgeType(G, letRec(len, lst, list(T), int, if(isNil(lst), 0, funcall(funcall(sum, 1), funcall(len, tail(lst)))), funcall(len, nil(bool))), T2).
+initGamma(G), judgeType(G, letRec(gen, n, int, list(int), if(funcall(funcall(eq, 0), n), nil(T), cons(n, funcall(gen, funcall(funcall(diff, n), 1)))), funcall(gen, 3)), T2).
+
+/*
+ * Quicksort
+ *
+ */
+quicksort([], []).
+quicksort([H | T], S) :-
+   partition(T, H, Less, Same, Greater),
+   quicksort(Less, SLess),
+   quicksort(Greater, SGreater),
+   append(SLess, [H | Same], SGreater, S).
+
+append([], L, L).
+append([H | T], L, [H | A]) :- append(T, L, A).
+
+append(L1, L2, L3, A) :- append(L2, L3, L23), append(L1, L23, A).

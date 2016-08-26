@@ -1,0 +1,24 @@
+
+%!second([], E).
+%second([H|T], E):-member(E,T),Y==2.
+%one([]).
+%one([H|T]):-
+%index(E, [], N).
+%index(E, [H|T], N):-
+
+
+
+/**
+ * predicate(-Arg:type) is nondet
+ *
+ *
+ * L - unsorted list
+ * S - sorted list
+ */
+%!insertion_sort([],[]).
+%insertion_sort(List, Sorted):-ins_wrapper(List,[],Sorted).
+%ins_wrapper([],A,A).
+%ins_wrapper([H|T],A,Sorted):-insert(H,A,NA),ins_wrapper(T,NA,Sorted).             
+%insert(X,[Y|T],[Y|
+%ins_wrapper([],Acc,Acc).
+%ins_wrapper([H|T],Acc,Sorted):-insert(H,Acc,Nacc),ins_wrapper(T,NAcc,Sorted).

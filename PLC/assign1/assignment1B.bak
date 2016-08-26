@@ -1,0 +1,7 @@
+(define (merge ordered1 ordered2)
+  (if (null? ordered1) ordered2
+      (if (null? ordered2) ordered1
+          if ((car ordered1)>(car ordered2)) (cons (car ordered2)(cons (car ordered1) (merge (cdr ordered1) (cdr ordered2))))
+          (cons (car ordered1) (cons (car ordered2) (merge (cdr ordered1) (cdr ordered2)))))))
+
+(merge '(1 4 6) '(2 5 7))

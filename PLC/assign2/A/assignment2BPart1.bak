@@ -1,0 +1,7 @@
+(define (union a b)
+  (cond ((null? b) a)
+        ((element? (car b) a)
+         (union a (cdr b)))
+        (#t (union (cons (car b) a) (cdr b)))))
+
+(union '(1 2 3 4) '(5 2 6 3))

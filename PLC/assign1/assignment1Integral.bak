@@ -1,0 +1,2 @@
+(define (zero-poly? poly)
+  (if '() #t #f))
